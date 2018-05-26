@@ -12,9 +12,9 @@
   flex-wrap: wrap;
   margin-right: -12px;
   margin-left: -12px;
+  width: 100%;
 
 }
-
 
 [class*=col-] {
   padding-right: 12px;
@@ -22,7 +22,7 @@
 }
 
 .col{
-
+  width: 100%;
 }
 .col-12 {
   width: 100%;
@@ -60,3 +60,7 @@
 .col-1 {
   width: 8.333333%;
 }
+
+
+
+

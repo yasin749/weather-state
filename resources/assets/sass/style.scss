@@ -1,6 +1,9 @@
 @import 'components/variables';
+@import 'components/mixin';
 @import 'components/font';
 @import 'components/body';
 @import 'components/grid';
-@import 'components/header';
+@import 'components/flexbox';
+@import 'sections/header';
+@import 'sections/main';
 @import 'components/button';

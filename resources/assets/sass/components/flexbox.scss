@@ -1,0 +1,7 @@
+.flex{
+  display: flex;
+  &.align-center{
+    justify-content: center;
+    align-items: center;
+  }
+}
