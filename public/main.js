@@ -8615,7 +8615,6 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 "use strict";
 /* unused harmony default export */ var _unused_webpack_default_export = (config = {
     weatherState : {
-        // ikinci bir api kullanabilme ihtimaline karşı "owm" objesi açıldı.
         owm : {
             api: {
                 appid : '4cf9deb8b16a507d993b036c4991b7eb',
@@ -8626,29 +8625,22 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
             },
             cities : {
                 istanbul: {
-                    "id": 745044,
-                    "name": "Istanbul",
-                    "country": "TR",
+                    id: 745044
                 },
                 ankara: {
-                    "id": 323786,
-                    "name": "Ankara",
-                    "country": "TR",
+                    id: 323786
                 },
                 izmir: {
-                    "id": 311044,
-                    "name": "İzmir",
-                    "country": "TR",
+                    id: 311044
                 },
                 antalya: {
-                    "id": 323776,
-                    "name": "Antalya",
-                    "country": "TR",
+                    id: 323776
                 },
                 adana: {
-                    "id": 325363,
-                    "name": "Adana",
-                    "country": "TR",
+                    id: 325363
+                },
+                bursa: {
+                    id: 750268
                 },
             }
         }

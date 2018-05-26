@@ -1,7 +1,11 @@
 .flex{
   display: flex;
-  &.align-center{
-    justify-content: center;
-    align-items: center;
-  }
+}
+
+.aligner{
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }

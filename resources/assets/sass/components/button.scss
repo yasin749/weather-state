@@ -1,6 +1,5 @@
 .button {
-  border-radius: 25px;
-  transition: all 0.10s ease-in-out 0s;
+  transition: $transitionBase;
   display: inline-block;
   text-align: center;
   text-decoration: none !important;
@@ -8,9 +7,6 @@
   cursor: pointer;
   position: relative;
   border: none;
-  i {
-    margin: 0 5px 0 0;
-  }
   &.small {
     font-size: 14px;
     padding: 5px 15px;
@@ -32,11 +28,14 @@
     line-height: 1.5;
   }
 
-  &.style1 {
-    background: #000;
+  &.service-button {
+    background: $baseColor-400;
     color: #FFF;
     &:hover {
-      background: #000;
+      background: $baseColor-300;
     }
+  }
+  &.border-button {
+    border:1px solid $borderColor-400;
   }
 }

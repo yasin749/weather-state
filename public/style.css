@@ -16,7 +16,7 @@
 body {
   background: #FFF;
   font-family: "Avenir LT Pro", sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 500;
   color: #302c2c;
   word-wrap: break-word;
@@ -33,6 +33,14 @@ img {
 ul {
   margin: 0;
   padding: 0 0 0 25px; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  line-height: 1.1; }
+
+h2 {
+  font-size: 24px;
+  margin: 20px 0; }
 
 .adaptLink {
   color: inherit;
@@ -58,7 +66,7 @@ ul {
   margin-right: auto;
   margin-left: auto;
   width: 100%;
-  max-width: 980px;
+  max-width: 700px;
   padding-right: 12px;
   padding-left: 12px; }
 
@@ -114,27 +122,16 @@ ul {
 
 .flex {
   display: flex; }
-  .flex.align-center {
-    justify-content: center;
-    align-items: center; }
 
-header {
-  border-bottom: 1px solid #ebebeb; }
-  header .logo {
-    height: 85px; }
-    header .logo a {
-      color: #f03f3e;
-      font-weight: 600;
-      font-size: 22px;
-      letter-spacing: 3px;
-      word-spacing: 5px; }
-
-.mainContainer {
-  margin: 30px 0; }
+.aligner {
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
 
 .button {
-  border-radius: 25px;
-  transition: all 0.10s ease-in-out 0s;
+  transition: all 0.1s ease-in-out 0s;
   display: inline-block;
   text-align: center;
   text-decoration: none !important;
@@ -142,8 +139,6 @@ header {
   cursor: pointer;
   position: relative;
   border: none; }
-  .button i {
-    margin: 0 5px 0 0; }
   .button.small {
     font-size: 14px;
     padding: 5px 15px;
@@ -161,8 +156,53 @@ header {
     font-weight: 600;
     min-width: 160px;
     line-height: 1.5; }
-  .button.style1 {
-    background: #000;
+  .button.service-button {
+    background: #f26013;
     color: #FFF; }
-    .button.style1:hover {
-      background: #000; }
+    .button.service-button:hover {
+      background: #ec6c29; }
+  .button.border-button {
+    border: 1px solid #ccc; }
+
+header {
+  border-bottom: 1px solid #ebebeb; }
+  header .logo {
+    height: 85px; }
+    header .logo a {
+      color: #f03f3e;
+      font-weight: 600;
+      font-size: 22px;
+      letter-spacing: 3px;
+      word-spacing: 5px; }
+
+.mainContainer {
+  margin: 30px 0; }
+
+.box {
+  border: 1px solid #dcdcdc; }
+  .box:not(.no-margin) {
+    margin-bottom: 24px; }
+
+.weather-box {
+  text-align: center;
+  padding: 25px 15px;
+  font-size: 16px; }
+  .weather-box span {
+    margin: 5px 0;
+    display: block; }
+  .weather-box .city-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 5px 0 10px 0; }
+  .weather-box .temperature {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 10px 0; }
+  .weather-box .description {
+    font-size: 13px;
+    opacity: 0.5;
+    margin-bottom: 10px; }
+  .weather-box .button {
+    margin: 10px 0 0 0;
+    font-weight: 400;
+    font-size: 11px; }

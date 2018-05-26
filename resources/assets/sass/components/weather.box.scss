@@ -1,0 +1,38 @@
+.weather-box{
+  text-align: center;
+  padding: 25px 15px;
+  font-size: 16px;
+  span{
+    margin: 5px 0;
+    display: block;
+  }
+  .city-name{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 5px 0 10px 0;
+  }
+  .ico{
+
+  }
+  .temperature{
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+  }
+  .state{
+
+  }
+  .description{
+    font-size: 13px;
+    opacity: 0.5;
+    margin-bottom: 10px;
+  }
+  .wind{
+
+  }
+  .button{
+    margin: 10px 0 0 0;
+    font-weight: 400;
+    font-size: 11px;
+  }
+}
