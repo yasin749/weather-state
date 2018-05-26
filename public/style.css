@@ -38,8 +38,12 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
   line-height: 1.1; }
 
-h2 {
+h1 {
   font-size: 24px;
+  margin: 20px 0; }
+
+h2 {
+  font-size: 22px;
   margin: 20px 0; }
 
 .adaptLink {
@@ -123,7 +127,7 @@ h2 {
 .flex {
   display: flex; }
 
-.aligner {
+.aligner, .weather-line > div {
   display: flex;
   -ms-flex-align: center;
   align-items: center;
@@ -206,3 +210,16 @@ header {
     margin: 10px 0 0 0;
     font-weight: 400;
     font-size: 11px; }
+
+.weather-line {
+  display: flex;
+  border-bottom: 1px solid #dcdcdc; }
+  .weather-line > div {
+    flex: 1;
+    flex-direction: column;
+    padding: 5px; }
+  .weather-line.head {
+    padding: 10px 0;
+    background: #f26013;
+    color: #fff;
+    border: none; }
