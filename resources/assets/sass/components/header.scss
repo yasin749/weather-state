@@ -1,0 +1,21 @@
+.headerContainer {}
+.headerContent {
+  border-bottom: 2px solid #a5a5a5;
+  padding-top: 25px;
+  padding-bottom: 20px;
+
+  .left {
+    .logo {
+      width: 250px;
+    }
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    .logo {
+      width: 213px;
+    }
+  }
+}
