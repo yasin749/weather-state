@@ -8615,8 +8615,8 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 "use strict";
 /* unused harmony default export */ var _unused_webpack_default_export = (config = {
     weatherState : {
-        // ikinci bir api kullanabilme ihtimaline karşı "openweathermap" objesi açıldı.
-        openweathermap : {
+        // ikinci bir api kullanabilme ihtimaline karşı "owm" objesi açıldı.
+        owm : {
             api: {
                 appid : '4cf9deb8b16a507d993b036c4991b7eb',
                 url : {
@@ -8661,7 +8661,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* 8 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: ModuleBuildError: Module build failed: \n@import 'components/grid';\n^\n      File to import not found or unreadable: components/grid.\n      in /Users/yasinuysal/Code/yasin/3-Projects/weather-state/resources/assets/sass/style.scss (line 4, column 1)\n    at runLoaders (/Users/yasinuysal/Code/yasin/3-Projects/weather-state/node_modules/webpack/lib/NormalModule.js:195:19)\n    at /Users/yasinuysal/Code/yasin/3-Projects/weather-state/node_modules/loader-runner/lib/LoaderRunner.js:364:11\n    at /Users/yasinuysal/Code/yasin/3-Projects/weather-state/node_modules/loader-runner/lib/LoaderRunner.js:230:18\n    at context.callback (/Users/yasinuysal/Code/yasin/3-Projects/weather-state/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.asyncSassJobQueue.push [as callback] (/Users/yasinuysal/Code/yasin/3-Projects/weather-state/node_modules/sass-loader/lib/loader.js:76:13)\n    at Object.done [as callback] (/Users/yasinuysal/Code/yasin/3-Projects/weather-state/node_modules/neo-async/async.js:7974:18)\n    at options.error (/Users/yasinuysal/Code/yasin/3-Projects/weather-state/node_modules/node-sass/lib/index.js:294:32)");
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

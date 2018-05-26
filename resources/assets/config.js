@@ -1,7 +1,7 @@
 export default config = {
     weatherState : {
-        // ikinci bir api kullanabilme ihtimaline karşı "openweathermap" objesi açıldı.
-        openweathermap : {
+        // ikinci bir api kullanabilme ihtimaline karşı "owm" objesi açıldı.
+        owm : {
             api: {
                 appid : '4cf9deb8b16a507d993b036c4991b7eb',
                 url : {

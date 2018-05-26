@@ -1,3 +1,6 @@
+*{
+  box-sizing: inherit;
+}
 body {
   background: #FFF;
   font-family: $font;
@@ -5,6 +8,7 @@ body {
   font-weight: 500;
   color: $fontColor;
   word-wrap: break-word;
+  box-sizing: border-box;
 }
 p, label {
   margin: 0;
@@ -36,14 +40,7 @@ ul {
   }
 }
 
-.noFlex {
-  display: block;
-}
 
-
-.container {
-  max-width: $siteWidth;
-}
 .mainContainer {
   margin: 30px 0;
 }
