@@ -124,6 +124,30 @@ h2 {
 .col-1 {
   width: 8.333333%; }
 
+@media screen and (max-width: 640px) {
+  .col-xs-11 {
+    width: 91.666667%; }
+  .col-xs-10 {
+    width: 83.333333%; }
+  .col-xs-9 {
+    width: 75%; }
+  .col-xs-8 {
+    width: 66.666667%; }
+  .col-xs-7 {
+    width: 58.333333%; }
+  .col-xs-6 {
+    width: 50%; }
+  .col-xs-5 {
+    width: 41.666667%; }
+  .col-xs-4 {
+    width: 33.333333%; }
+  .col-xs-3 {
+    width: 25%; }
+  .col-xs-2 {
+    width: 16.666667%; }
+  .col-xs-1 {
+    width: 8.333333%; } }
+
 .flex {
   display: flex; }
 
@@ -220,6 +244,10 @@ header {
     border-color: #f26013;
     color: #fff; }
 
+@media screen and (max-width: 640px) {
+  .weather-box {
+    padding: 15px 10px; } }
+
 .weather-line {
   display: flex;
   border-bottom: 1px solid #dcdcdc; }
@@ -282,3 +310,7 @@ header {
     min-height: 100px;
     max-height: 70vh;
     overflow: scroll; }
+
+@media screen and (max-width: 800px) {
+  .popup .content-section-wrapper .close-button {
+    right: 0; } }

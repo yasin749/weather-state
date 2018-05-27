@@ -59,3 +59,10 @@
     }
   }
 }
+
+
+@media screen and (max-width: 800px) {
+  .popup .content-section-wrapper .close-button{
+    right: 0;
+  }
+}
