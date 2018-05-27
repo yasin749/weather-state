@@ -316,6 +316,7 @@ header {
     position: relative;
     background: #fff;
     width: 700px;
+    max-height: 100%;
     padding: 25px;
     z-index: 2; }
     .popup .content-section-wrapper .close-button {
@@ -345,4 +346,4 @@ header {
   .popup .content-section-wrapper {
     padding: 10px; }
   .popup .content-section .body-block-inner {
-    max-height: 83vh; } }
+    max-height: 87vh; } }

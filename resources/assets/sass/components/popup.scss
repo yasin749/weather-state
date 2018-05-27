@@ -26,6 +26,7 @@
     position: relative;
     background: #fff;
     width: $siteWidth;
+    max-height: 100%;
     padding: 25px;
     z-index: 2;
 
@@ -78,7 +79,7 @@
     }
     .content-section {
       .body-block-inner {
-        max-height: 83vh;
+        max-height: 87vh;
       }
     }
   }
