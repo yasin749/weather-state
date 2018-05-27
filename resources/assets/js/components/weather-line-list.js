@@ -17,8 +17,7 @@ var weatherLineList = Vue.component('weather-line-list', {
     },
     methods: {
         loadForecasts: function () {
-            let cityId = this.cityId;
-            let apiUrl = this.apiUrlPrepared(cityId);
+            let apiUrl = this.apiUrlPrepared(this.cityId);
             this.apiFetchData(apiUrl);
         },
         apiUrlPrepared: function (cityId) {
@@ -34,7 +33,7 @@ var weatherLineList = Vue.component('weather-line-list', {
         },
     },
     template: `
-        <div>
+        <div v-if="forecasts[0]">
             <h2>{{forecasts[0].city.name}}</h2>
             <div class="weather-line head">
                 <div class="date">Date</div>

@@ -5,7 +5,5 @@ import weatherLineList from './js/components/weather-line-list'
 
 var App = new Vue({
     el: '#app',
-    data: {
-
-    }
+    data: {}
 })
