@@ -23,7 +23,7 @@ var weatherLineList = Vue.component('weather-line-list', {
             this.apiFetchData(apiUrl);
         },
         apiUrlPrepared: function (cityId) {
-            let apiUrl = `${config.weatherState.api.dataUrl}forecast?id=${cityId}&appid=${config.weatherState.api.appId}`;
+            let apiUrl = `${config.weatherState.api.dataUrl}forecast?id=${cityId}&appid=${config.weatherState.api.appId}&units=metric`;
             return apiUrl;
         },
         apiFetchData: function (url) {

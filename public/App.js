@@ -13185,14 +13185,14 @@ var weatherBoxList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.compon
             let cities = __WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.cities;
 
             for (var city in __WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.cities) {
-                let cityId = cities[city].id
+                let cityId = cities[city].id;
                 let apiUrl = this.apiUrlPrepared(cityId);
 
                 this.apiFetchData(apiUrl);
             }
         },
         apiUrlPrepared: function (cityId) {
-            let apiUrl = `${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.dataUrl}weather?id=${cityId}&appid=${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.appId}`;
+            let apiUrl = `${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.dataUrl}weather?id=${cityId}&appid=${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.appId}&units=metric`;
             return apiUrl;
         },
         apiFetchData: function (url) {
@@ -13365,7 +13365,7 @@ var weatherLineList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.compo
             this.apiFetchData(apiUrl);
         },
         apiUrlPrepared: function (cityId) {
-            let apiUrl = `${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.dataUrl}forecast?id=${cityId}&appid=${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.appId}`;
+            let apiUrl = `${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.dataUrl}forecast?id=${cityId}&appid=${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.appId}&units=metric`;
             return apiUrl;
         },
         apiFetchData: function (url) {
@@ -13426,7 +13426,7 @@ var weatherLine = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component
         }
     },
     template: `
-        <div v-bind:class="['weather-line', date.dayName.toLowerCase()]">
+        <div v-bind:class="['weather-line', date.dayName]">
             <div class="date">
                 <span class="day">{{date.dayName}}</span>
                 <span class="time">{{date.timeNumber}}</span>

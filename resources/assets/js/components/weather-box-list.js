@@ -21,14 +21,14 @@ var weatherBoxList = Vue.component('weather-box-list', {
             let cities = config.weatherState.cities;
 
             for (var city in config.weatherState.cities) {
-                let cityId = cities[city].id
+                let cityId = cities[city].id;
                 let apiUrl = this.apiUrlPrepared(cityId);
 
                 this.apiFetchData(apiUrl);
             }
         },
         apiUrlPrepared: function (cityId) {
-            let apiUrl = `${config.weatherState.api.dataUrl}weather?id=${cityId}&appid=${config.weatherState.api.appId}`;
+            let apiUrl = `${config.weatherState.api.dataUrl}weather?id=${cityId}&appid=${config.weatherState.api.appId}&units=metric`;
             return apiUrl;
         },
         apiFetchData: function (url) {

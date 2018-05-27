@@ -18,7 +18,7 @@ var weatherLine = Vue.component('weather-line', {
         }
     },
     template: `
-        <div v-bind:class="['weather-line', date.dayName.toLowerCase()]">
+        <div v-bind:class="['weather-line', date.dayName]">
             <div class="date">
                 <span class="day">{{date.dayName}}</span>
                 <span class="time">{{date.timeNumber}}</span>

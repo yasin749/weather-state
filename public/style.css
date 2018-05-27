@@ -227,9 +227,9 @@ header {
     flex: 1;
     flex-direction: column;
     padding: 5px; }
-  .weather-line.sunday {
+  .weather-line.Sunday {
     background: #f7f7f7; }
-  .weather-line.tuesday, .weather-line.thursday, .weather-line.saturday {
+  .weather-line.Tuesday, .weather-line.Thursday, .weather-line.Saturday {
     background: #f7f7f7; }
   .weather-line.head {
     padding: 10px 0;
