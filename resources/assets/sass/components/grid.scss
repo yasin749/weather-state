@@ -10,6 +10,7 @@
 .row {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   margin-right: -12px;
   margin-left: -12px;
   width: 100%;

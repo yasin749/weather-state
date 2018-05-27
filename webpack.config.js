@@ -4,10 +4,10 @@ var path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    entry: ['./resources/assets/main.js','./resources/assets/sass/style.scss'],
+    entry: ['./resources/assets/App.js','./resources/assets/sass/style.scss'],
     output: {
         path: path.resolve(__dirname, './public'),
-        filename: 'main.js'
+        filename: 'App.js'
     },
     module: {
         rules: [
@@ -20,7 +20,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new ExtractTextPlugin({ // define where to save the file
+        new ExtractTextPlugin({
             filename: 'style.css',
             allChunks: true,
         }),

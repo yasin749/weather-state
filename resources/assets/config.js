@@ -1,4 +1,4 @@
-export default config = {
+var config = {
     weatherState : {
         owm : {
             api: {
@@ -31,4 +31,6 @@ export default config = {
         }
     }
 }
+
+export default config;
 

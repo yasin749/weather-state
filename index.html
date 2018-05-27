@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Weather State</title>
     <link href="public/style.css" rel="stylesheet" type="text/css" media="all"/>
+
 </head>
 <body>
+
 <header class="headerWrapper">
     <div class="container">
         <div class="row">
@@ -17,144 +19,57 @@
         </div>
     </div>
 </header>
-<main class="mainContainer">
+
+<main class="mainContainer" id="app">
     <div class="container">
-        <h1>26 Mayıs Cumartesi</h1>
         <div class="row">
-            <div class="col-4">
-                <div class="box weather-box">
-                    <a href="javascript:;" class="adaptLink">
-                        <span class="city-name">İstanbul</span>
-                        <img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul">
-                        <span class="temperature">19 to 23 °С</span>
-                        <span class="state">Clouds</span>
-                        <span class="description">broken clouds</span>
-                        <span class="wind">Wind : 5.1 m/s</span>
-                        <span class="button small border-button">Five day forecast</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="box weather-box">
-                    <a href="javascript:;" class="adaptLink">
-                        <span class="city-name">İstanbul</span>
-                        <img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul">
-                        <span class="temperature">19 to 23 °С</span>
-                        <span class="state">
-                            Clouds
-                            <span class="description">broken clouds</span>
-                        </span>
-                        <span class="wind">Wind : 5.1 m/s</span>
-                        <span class="button small border-button">Five day forecast</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="box weather-box">
-                    <a href="javascript:;" class="adaptLink">
-                        <span class="city-name">İstanbul</span>
-                        <img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul">
-                        <span class="temperature">19 to 23 °С</span>
-                        <span class="state">
-                            Clouds
-                            <span class="description">broken clouds</span>
-                        </span>
-                        <span class="wind">Wind : 5.1 m/s</span>
-                        <span class="button small border-button">Five day forecast</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="box weather-box">
-                    <a href="javascript:;" class="adaptLink">
-                        <span class="city-name">İstanbul</span>
-                        <img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul">
-                        <span class="temperature">19 to 23 °С</span>
-                        <span class="state">
-                            Clouds
-                            <span class="description">broken clouds</span>
-                        </span>
-                        <span class="wind">Wind : 5.1 m/s</span>
-                        <span class="button small border-button">Five day forecast</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="box weather-box">
-                    <a href="javascript:;" class="adaptLink">
-                        <span class="city-name">İstanbul</span>
-                        <img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul">
-                        <span class="temperature">19 to 23 °С</span>
-                        <span class="state">
-                            Clouds
-                            <span class="description">broken clouds</span>
-                        </span>
-                        <span class="wind">Wind : 5.1 m/s</span>
-                        <span class="button small border-button">Five day forecast</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="box weather-box">
-                    <a href="javascript:;" class="adaptLink">
-                        <span class="city-name">İstanbul</span>
-                        <img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul">
-                        <span class="temperature">19 to 23 °С</span>
-                        <span class="state">
-                            Clouds
-                            <span class="description">broken clouds</span>
-                        </span>
-                        <span class="wind">Wind : 5.1 m/s</span>
-                        <span class="button small border-button">Five day forecast</span>
-                    </a>
-                </div>
-            </div>
+            <weather-box-list></weather-box-list>
         </div>
 
-        <hr>
-
-        <h2>İstanbul</h2>
-        <div class="weather-line head">
-            <div class="date">Date</div>
-            <div class="ico">Expect</div>
-            <div class="temperature">Temperature (°С)</div>
-            <div class="state">State</div>
-            <div class="wind">Wind (m/s)</div>
-        </div>
-        <div class="weather-line">
-            <div class="date">
-                <span class="day">Pazar</span>
-                <span class="time">22:00</span>
+        <div style="display: none;">
+            <h2>İstanbul</h2>
+            <div class="weather-line head">
+                <div class="date">Date</div>
+                <div class="ico">Expect</div>
+                <div class="temperature">Temperature (°С)</div>
+                <div class="state">State</div>
+                <div class="wind">Wind (m/s)</div>
             </div>
-            <div class="ico"><img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul"></div>
-            <div class="temperature">19 to 23</div>
-            <div class="state">Clouds</div>
-            <div class="wind">5.1</div>
-        </div>
-        <div class="weather-line">
-            <div class="date">
-                <span class="day">Pazar</span>
-                <span class="time">22:00</span>
+            <div class="weather-line">
+                <div class="date">
+                    <span class="day">Pazar</span>
+                    <span class="time">22:00</span>
+                </div>
+                <div class="ico"><img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul"></div>
+                <div class="temperature">19 to 23</div>
+                <div class="state">Clouds</div>
+                <div class="wind">5.1</div>
             </div>
-            <div class="ico"><img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul"></div>
-            <div class="temperature">19 to 23</div>
-            <div class="state">Clouds</div>
-            <div class="wind">5.1</div>
-        </div>
-        <div class="weather-line">
-            <div class="date">
-                <span class="day">Pazar</span>
-                <span class="time">22:00</span>
+            <div class="weather-line">
+                <div class="date">
+                    <span class="day">Pazar</span>
+                    <span class="time">22:00</span>
+                </div>
+                <div class="ico"><img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul"></div>
+                <div class="temperature">19 to 23</div>
+                <div class="state">Clouds</div>
+                <div class="wind">5.1</div>
             </div>
-            <div class="ico"><img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul"></div>
-            <div class="temperature">19 to 23</div>
-            <div class="state">Clouds</div>
-            <div class="wind">5.1</div>
+            <div class="weather-line">
+                <div class="date">
+                    <span class="day">Pazar</span>
+                    <span class="time">22:00</span>
+                </div>
+                <div class="ico"><img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul"></div>
+                <div class="temperature">19 to 23</div>
+                <div class="state">Clouds</div>
+                <div class="wind">5.1</div>
+            </div>
         </div>
-
     </div>
 </main>
 
-<script type="text/javascript" src="public/main.js"></script>
+
+<script type="text/javascript" src="public/App.js" async></script>
 </body>
 </html>
