@@ -1,6 +1,6 @@
 # weather-state
 
-https://openweathermap.org/current datalarını kullanarak hava durumu yayınlar. 
+https://openweathermap.org/current datalarını kullanarak günlük ve 5 günlük hava durumu gösterimi yapar. 
 
 ## Paketleri yüklemek için
 ```
