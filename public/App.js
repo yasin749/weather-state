@@ -13290,6 +13290,7 @@ var weatherBox = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component(
 __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_resource__["a" /* default */]);
 
 var weatherLineList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component('weather-line-list', {
+
     data: function () {
         return {
             forecasts: [],

@@ -6,6 +6,7 @@ import weatherLine from './weather-line'
 Vue.use(VueResource);
 
 var weatherLineList = Vue.component('weather-line-list', {
+
     data: function () {
         return {
             forecasts: [],
