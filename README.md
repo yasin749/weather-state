@@ -1,5 +1,7 @@
 # weather-state
 
+https://openweathermap.org/current datalarını kullanarak hava durumu yayınlar. 
+
 ## Paketleri yüklemek için
 ```
 npm install
