@@ -11,17 +11,16 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-3": "^6.24.1",
     "cross-env": "^5.1.6",
-    "css-loader": "^0.28.11",
-    "extract-text-webpack-plugin": "^3.0.2",
     "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1",
     "vue": "^2.5.16",
     "vue-resource": "^1.5.1",
     "webpack": "^3.12.0"
   },
   "scripts": {
-    "dev": "webpack --watch",
-    "build": "NODE_ENV=production webpack --progress --hide-modules"
+    "dev": "webpack --watch | npm run css-watch",
+    "build": "NODE_ENV=production webpack --progress --hide-modules && npm run css",
+    "css": "node-sass --recursive --output-style 'compressed' resources/assets/sass/style.scss -o public",
+    "css-watch": "node-sass --watch --recursive --output-style 'compressed' resources/assets/sass/style.scss -o public"
   },
   "repository": {
     "type": "git",
