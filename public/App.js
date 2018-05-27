@@ -13426,7 +13426,7 @@ var weatherLine = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component
         }
     },
     template: `
-        <div v-bind:class="['weather-line', date.dayName]">
+        <div v-bind:class="['weather-line', date.dayName.toLowerCase()]">
             <div class="date">
                 <span class="day">{{date.dayName}}</span>
                 <span class="time">{{date.timeNumber}}</span>
