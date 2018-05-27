@@ -10,7 +10,7 @@
   font-weight: 600;
   font-style: normal; }
 
-* {
+*, ::after, ::before {
   box-sizing: inherit; }
 
 body {
@@ -79,8 +79,7 @@ h2 {
   flex-wrap: wrap;
   flex-direction: row;
   margin-right: -12px;
-  margin-left: -12px;
-  width: 100%; }
+  margin-left: -12px; }
 
 [class*=col-] {
   padding-right: 12px;
