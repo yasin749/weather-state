@@ -66,6 +66,11 @@ h2 {
 .text-right {
   text-align: right; }
 
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 20px;
+    margin: 15px 0; } }
+
 .container {
   margin-right: auto;
   margin-left: auto;
@@ -204,8 +209,16 @@ header {
       letter-spacing: 3px;
       word-spacing: 5px; }
 
+@media screen and (max-width: 640px) {
+  header .logo {
+    height: 55px; } }
+
 .mainContainer {
   margin: 30px 0; }
+
+@media screen and (max-width: 640px) {
+  .mainContainer {
+    margin: 10px 0; } }
 
 .box {
   border: 1px solid #dcdcdc; }
@@ -246,7 +259,14 @@ header {
 
 @media screen and (max-width: 640px) {
   .weather-box {
-    padding: 15px 10px; } }
+    padding: 15px 10px;
+    font-size: 14px; }
+    .weather-box .city-name {
+      font-size: 18px;
+      margin: 5px 0 5px 0; }
+    .weather-box .temperature {
+      font-size: 18px;
+      margin: 0 0 5px 0; } }
 
 .weather-line {
   display: flex;
@@ -267,6 +287,12 @@ header {
   .weather-line .ico img {
     width: 50px;
     height: 50px; }
+
+@media screen and (max-width: 640px) {
+  .weather-line {
+    font-size: 12px; }
+    .weather-line > div {
+      padding: 0px; } }
 
 .popup {
   position: fixed;
@@ -314,3 +340,9 @@ header {
 @media screen and (max-width: 800px) {
   .popup .content-section-wrapper .close-button {
     right: 0; } }
+
+@media screen and (max-width: 640px) {
+  .popup .content-section-wrapper {
+    padding: 10px; }
+  .popup .content-section .body-block-inner {
+    max-height: 91vh; } }

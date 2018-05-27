@@ -41,3 +41,14 @@
 
   }
 }
+
+
+@media screen and (max-width: 640px) {
+  .weather-line {
+    font-size: 12px;
+    > div {
+      padding: 0px;
+    }
+  }
+}
+

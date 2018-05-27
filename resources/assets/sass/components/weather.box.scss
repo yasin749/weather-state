@@ -52,6 +52,14 @@
 @media screen and (max-width: 640px) {
   .weather-box{
     padding: 15px 10px;
+    font-size: 14px;
+    .city-name {
+      font-size: 18px;
+      margin: 5px 0 5px 0;
+    }
+    .temperature {
+      font-size: 18px;
+      margin: 0 0 5px 0;
+    }
   }
-
 }

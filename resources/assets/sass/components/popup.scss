@@ -60,9 +60,27 @@
   }
 }
 
-
 @media screen and (max-width: 800px) {
-  .popup .content-section-wrapper .close-button{
-    right: 0;
+  .popup {
+    .content-section-wrapper {
+      .close-button {
+        right: 0;
+      }
+    }
+
   }
+}
+
+@media screen and (max-width: 640px) {
+  .popup {
+    .content-section-wrapper {
+      padding: 10px;
+    }
+    .content-section {
+      .body-block-inner {
+        max-height: 91vh;
+      }
+    }
+  }
+
 }

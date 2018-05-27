@@ -1,3 +1,9 @@
 .mainContainer {
   margin: 30px 0;
 }
+
+@media screen and (max-width: 640px) {
+  .mainContainer {
+    margin: 10px 0;
+  }
+}
