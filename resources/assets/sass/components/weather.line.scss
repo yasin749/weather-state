@@ -7,7 +7,16 @@
     flex-direction: column;
     padding: 5px;
   }
-  &.head{
+  &.sunday {
+    background: #f7f7f7;
+  }
+  &.monday, &.wednesday, &.friday {
+
+  }
+  &.tuesday, &.thursday, &.saturday {
+    background: #f7f7f7;
+  }
+  &.head {
     padding: 10px 0;
     background: $baseColor-400;
     color: #fff;
@@ -17,7 +26,7 @@
 
   }
   .ico {
-    img{
+    img {
       width: 50px;
       height: 50px;
     }

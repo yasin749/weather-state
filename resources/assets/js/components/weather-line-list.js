@@ -35,16 +35,19 @@ var weatherLineList = Vue.component('weather-line-list', {
         },
     },
     template: `
-        <div v-if="forecasts[0]">
-            <div class="weather-line head">
-                <div class="date">Date</div>
-                <div class="ico">Expect</div>
-                <div class="temperature">Temperature (°С)</div>
-                <div class="state">State</div>
-                <div class="wind">Wind (m/s)</div>
-            </div>
-            <div v-for="(forecast, index) in forecasts[0].list">
-                <weather-line v-bind:forecast="forecast"></weather-line>
+        <div>
+            <div v-if="forecasts.length == 0">Loading...</div>
+            <div v-if="forecasts.length > 0">
+                <div class="weather-line head">
+                    <div class="date">Date</div>
+                    <div class="ico">Expect</div>
+                    <div class="temperature">Temperature (°С)</div>
+                    <div class="state">State</div>
+                    <div class="wind">Wind (m/s)</div>
+                </div>
+                <div v-for="(forecast, index) in forecasts[0].list">
+                    <weather-line v-bind:forecast="forecast"></weather-line>
+                </div>
             </div>
         </div>
     `

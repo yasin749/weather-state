@@ -147,6 +147,7 @@ h2 {
   .button.small {
     font-size: 14px;
     padding: 5px 15px;
+    padding-top: 7px;
     font-weight: 600;
     min-width: 130px; }
   .button.medium {
@@ -215,6 +216,10 @@ header {
     margin: 10px 0 0 0;
     font-weight: 400;
     font-size: 11px; }
+  .weather-box:hover .button {
+    background: #f26013;
+    border-color: #f26013;
+    color: #fff; }
 
 .weather-line {
   display: flex;
@@ -223,6 +228,10 @@ header {
     flex: 1;
     flex-direction: column;
     padding: 5px; }
+  .weather-line.sunday {
+    background: #f7f7f7; }
+  .weather-line.tuesday, .weather-line.thursday, .weather-line.saturday {
+    background: #f7f7f7; }
   .weather-line.head {
     padding: 10px 0;
     background: #f26013;

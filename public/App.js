@@ -12678,7 +12678,7 @@ function dateTimeFormat(date) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(6);
-module.exports = __webpack_require__(15);
+module.exports = __webpack_require__(16);
 
 
 /***/ }),
@@ -13212,6 +13212,7 @@ var weatherBoxList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.compon
             <div class="col-12">
                 <h1>{{nowDate}}</h1>
             </div>
+            <div class="col-12" v-if="cities.length == 0">Loading...</div>
             <div class="col-4" v-for="(city, index) in cities">
                 <weather-box v-bind:city="city"></weather-box>
             </div>
@@ -13235,8 +13236,8 @@ var weatherBoxList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.compon
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__popup__ = __webpack_require__(16);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__weather_line_list__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__popup__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__weather_line_list__ = __webpack_require__(14);
 
 
 
@@ -13295,9 +13296,50 @@ var weatherBox = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component(
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__);
+
+
+var popup = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component('popup', {
+    data: function () {
+        return {}
+    },
+    methods: {
+        close: function () {
+            this.$emit('closed');
+        }
+    },
+    template: `
+        <div class="popup">
+            <div class="black-section" v-on:click="close()"></div>
+            <div class="content-section-wrapper">
+                <a href="javascript:;" class="close-button aligner adaptLink" v-on:click="close()">X</a>
+                <div class="content-section">
+                    <div class="head-block">
+                        <slot name="head"></slot>
+                    </div>
+                    <div class="body-block">
+                        <div class="body-block-inner">
+                            <slot name="body"></slot>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+})
+
+/* unused harmony default export */ var _unused_webpack_default_export = (popup);
+
+
+/***/ }),
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_resource__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__weather_line__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__weather_line__ = __webpack_require__(15);
 
 
 
@@ -13335,16 +13377,19 @@ var weatherLineList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.compo
         },
     },
     template: `
-        <div v-if="forecasts[0]">
-            <div class="weather-line head">
-                <div class="date">Date</div>
-                <div class="ico">Expect</div>
-                <div class="temperature">Temperature (°С)</div>
-                <div class="state">State</div>
-                <div class="wind">Wind (m/s)</div>
-            </div>
-            <div v-for="(forecast, index) in forecasts[0].list">
-                <weather-line v-bind:forecast="forecast"></weather-line>
+        <div>
+            <div v-if="forecasts.length == 0">Loading...</div>
+            <div v-if="forecasts.length > 0">
+                <div class="weather-line head">
+                    <div class="date">Date</div>
+                    <div class="ico">Expect</div>
+                    <div class="temperature">Temperature (°С)</div>
+                    <div class="state">State</div>
+                    <div class="wind">Wind (m/s)</div>
+                </div>
+                <div v-for="(forecast, index) in forecasts[0].list">
+                    <weather-line v-bind:forecast="forecast"></weather-line>
+                </div>
             </div>
         </div>
     `
@@ -13353,7 +13398,7 @@ var weatherLineList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.compo
 /* unused harmony default export */ var _unused_webpack_default_export = (weatherLineList);
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13381,7 +13426,7 @@ var weatherLine = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component
         }
     },
     template: `
-        <div class="weather-line">
+        <div v-bind:class="['weather-line', date.dayName.toLowerCase()]">
             <div class="date">
                 <span class="day">{{date.dayName}}</span>
                 <span class="time">{{date.timeNumber}}</span>
@@ -13398,51 +13443,10 @@ var weatherLine = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 16 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__);
-
-
-var popup = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component('popup', {
-    data: function () {
-        return {}
-    },
-    methods: {
-        close: function () {
-            this.$emit('closed');
-        }
-    },
-    template: `
-        <div class="popup">
-            <div class="black-section" v-on:click="close()"></div>
-            <div class="content-section-wrapper">
-                <a href="javascript:;" class="close-button aligner adaptLink" v-on:click="close()">X</a>
-                <div class="content-section">
-                    <div class="head-block">
-                        <slot name="head"></slot>
-                    </div>
-                    <div class="body-block">
-                        <div class="body-block-inner">
-                            <slot name="body"></slot>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    `
-})
-
-/* unused harmony default export */ var _unused_webpack_default_export = (popup);
-
 
 /***/ })
 /******/ ]);

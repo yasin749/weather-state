@@ -48,6 +48,7 @@ var weatherBoxList = Vue.component('weather-box-list', {
             <div class="col-12">
                 <h1>{{nowDate}}</h1>
             </div>
+            <div class="col-12" v-if="cities.length == 0">Loading...</div>
             <div class="col-4" v-for="(city, index) in cities">
                 <weather-box v-bind:city="city"></weather-box>
             </div>

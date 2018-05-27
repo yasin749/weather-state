@@ -37,4 +37,13 @@
     font-weight: 400;
     font-size: 11px;
   }
+
+  &:hover {
+    .button {
+      background: $baseColor-400;
+      border-color: $baseColor-400;
+      color: #fff;
+    }
+
+  }
 }
