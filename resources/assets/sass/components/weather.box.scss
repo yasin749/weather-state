@@ -2,6 +2,7 @@
   text-align: center;
   padding: 25px 15px;
   font-size: 16px;
+  cursor: pointer;
   span {
     margin: 5px 0;
     display: block;
@@ -12,7 +13,8 @@
     margin: 5px 0 10px 0;
   }
   .ico {
-
+    width: 50px;
+    height: 50px;
   }
   .temperature {
     font-size: 20px;

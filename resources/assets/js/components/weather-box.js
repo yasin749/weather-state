@@ -1,23 +1,29 @@
 import Vue from "vue/dist/vue";
+import config from '../../config'
 
 var weatherBox = Vue.component('weather-box', {
+    props: {
+        city: {type: Object, required: true}
+    },
     data: function () {
-        return {
-            count: 0
+        return {}
+    },
+    methods: {
+        imageUrlPrepared : function () {
+            let imageUrl = `http://openweathermap.org/img/w/${this.city.weather[0].icon}.png`;
+            return imageUrl;
         }
     },
     template: `
-        <div class="vue-template">
+        <div>
             <div class="box weather-box">
-                <a href="javascript:;" class="adaptLink">
-                    <span class="city-name">İstanbul</span>
-                    <img src="http://openweathermap.org/img/w/04d.png" class="ico" alt="istanbul">
-                    <span class="temperature">19 to 23 °С</span>
-                    <span class="state">Clouds</span>
-                    <span class="description">broken clouds</span>
-                    <span class="wind">Wind : 5.1 m/s</span>
-                    <span class="button small border-button">Five day forecast</span>
-                </a>
+                <span class="city-name">{{this.city.name}}</span>
+                <img v-bind:src="imageUrlPrepared()" class="ico" v-bind:alt="city.name">
+                <span class="temperature">{{this.city.main.temp}} °С</span>
+                <span class="state">{{this.city.weather[0].main}}</span>
+                <span class="description">{{this.city.weather[0].description}}</span>
+                <span class="wind">Wind : {{this.city.wind.speed}} m/s</span>
+                <span class="button small border-button">Five day forecast</span>
             </div>
         </div>
     `
