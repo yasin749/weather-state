@@ -12690,9 +12690,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_components_weather_box_list__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__js_components_weather_line_list__ = __webpack_require__(13);
-
-
 
 
 
@@ -13238,25 +13235,37 @@ var weatherBoxList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.compon
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__popup__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__weather_line_list__ = __webpack_require__(13);
+
+
 
 
 
 var weatherBox = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component('weather-box', {
     props: {
-        city: {type: Object, required: true}
+        city: {type: Object, required: true},
     },
     data: function () {
-        return {}
+        return {
+            visibleForecasts: false,
+        }
     },
     methods: {
-        imageUrlPrepared : function () {
+        imageUrlPrepared: function () {
             let imageUrl = `${__WEBPACK_IMPORTED_MODULE_1__config__["a" /* default */].weatherState.api.iconUrl}${this.city.weather[0].icon}.png`;
             return imageUrl;
+        },
+        openForecasts:function () {
+            this.visibleForecasts = true;
+        },
+        closeForecasts:function () {
+            this.visibleForecasts = false;
         }
     },
     template: `
         <div>
-            <div class="box weather-box">
+            <div class="box weather-box" v-on:click="openForecasts()">
                 <span class="city-name">{{this.city.name}}</span>
                 <img v-bind:src="imageUrlPrepared()" class="ico" v-bind:alt="city.name">
                 <span class="temperature">{{this.city.main.temp}} °С</span>
@@ -13265,6 +13274,13 @@ var weatherBox = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component(
                 <span class="wind">Wind : {{this.city.wind.speed}} m/s</span>
                 <span class="button small border-button">Five day forecast</span>
             </div>
+            <div v-if="visibleForecasts">
+                <popup v-on:closed="closeForecasts">
+                    <h2 slot="head">{{this.city.name}}</h2>
+                    <weather-line-list slot="body" v-bind:cityId="city.id"></weather-line-list>
+                </popup>
+            </div>
+            
         </div>
     `
 })
@@ -13290,11 +13306,12 @@ var weatherBox = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component(
 __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_resource__["a" /* default */]);
 
 var weatherLineList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component('weather-line-list', {
-
+    props: {
+        cityId: {type: Number, required: true},
+    },
     data: function () {
         return {
             forecasts: [],
-            cityId : 745044
         }
     },
     created() {
@@ -13319,7 +13336,6 @@ var weatherLineList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.compo
     },
     template: `
         <div v-if="forecasts[0]">
-            <h2>{{forecasts[0].city.name}}</h2>
             <div class="weather-line head">
                 <div class="date">Date</div>
                 <div class="ico">Expect</div>
@@ -13386,6 +13402,47 @@ var weatherLine = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 16 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__);
+
+
+var popup = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component('popup', {
+    data: function () {
+        return {}
+    },
+    methods: {
+        close: function () {
+            this.$emit('closed');
+        }
+    },
+    template: `
+        <div class="popup">
+            <div class="black-section" v-on:click="close()"></div>
+            <div class="content-section-wrapper">
+                <a href="javascript:;" class="close-button aligner adaptLink" v-on:click="close()">X</a>
+                <div class="content-section">
+                    <div class="head-block">
+                        <slot name="head"></slot>
+                    </div>
+                    <div class="body-block">
+                        <div class="body-block-inner">
+                            <slot name="body"></slot>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `
+})
+
+/* unused harmony default export */ var _unused_webpack_default_export = (popup);
+
 
 /***/ })
 /******/ ]);

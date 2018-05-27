@@ -1,4 +1,4 @@
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);@font-face {
+@font-face {
   font-family: "Avenir LT Pro";
   src: url("/public/fonts/AvenirLTPro-Light.woff2") format("woff2");
   font-weight: 300;
@@ -231,3 +231,46 @@ header {
   .weather-line .ico img {
     width: 50px;
     height: 50px; }
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  .popup .black-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1; }
+  .popup .content-section-wrapper {
+    position: relative;
+    background: #fff;
+    width: 700px;
+    padding: 25px;
+    z-index: 2; }
+    .popup .content-section-wrapper .close-button {
+      position: absolute;
+      top: 0;
+      right: -50px;
+      width: 50px;
+      height: 50px;
+      background: #302c2c;
+      font-weight: 600;
+      color: #fff;
+      font-size: 22px;
+      padding: 3px 0 0 0; }
+  .popup .content-section .head-block h2 {
+    margin: 0;
+    padding: 5px 0 20px 0; }
+  .popup .content-section .body-block-inner {
+    min-height: 100px;
+    max-height: 70vh;
+    overflow: scroll; }

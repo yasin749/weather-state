@@ -6,11 +6,12 @@ import weatherLine from './weather-line'
 Vue.use(VueResource);
 
 var weatherLineList = Vue.component('weather-line-list', {
-
+    props: {
+        cityId: {type: Number, required: true},
+    },
     data: function () {
         return {
             forecasts: [],
-            cityId : 745044
         }
     },
     created() {
@@ -35,7 +36,6 @@ var weatherLineList = Vue.component('weather-line-list', {
     },
     template: `
         <div v-if="forecasts[0]">
-            <h2>{{forecasts[0].city.name}}</h2>
             <div class="weather-line head">
                 <div class="date">Date</div>
                 <div class="ico">Expect</div>
