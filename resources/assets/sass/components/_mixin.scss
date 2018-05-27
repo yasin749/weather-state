@@ -1,7 +1,7 @@
 @mixin fontFace($name,$fileName,$weight,$style) {
   @font-face {
     font-family: '#{$name}';
-    src: url('#{$fileName}.woff2') format('woff2');
+    src: url('//yasin749.github.io/public/fonts#{$fileName}.woff2') format('woff2');
     font-weight: $weight;
     font-style: $style;
   }

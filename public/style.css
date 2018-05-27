@@ -1,12 +1,12 @@
 @font-face {
   font-family: "Avenir LT Pro";
-  src: url("/public/fonts/AvenirLTPro-Light.woff2") format("woff2");
+  src: url("//yasin749.github.io/public/fontsAvenirLTPro-Light.woff2") format("woff2");
   font-weight: 300;
   font-style: normal; }
 
 @font-face {
   font-family: "Avenir LT Pro";
-  src: url("/public/fonts/AvenirLTPro-Heavy.woff2") format("woff2");
+  src: url("//yasin749.github.io/public/fontsAvenirLTPro-Heavy.woff2") format("woff2");
   font-weight: 600;
   font-style: normal; }
 
