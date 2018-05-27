@@ -7,12 +7,12 @@ https://openweathermap.org/current datalarını kullanarak günlük ve 5 günlü
 npm install
 ```
 
-## Dosyaları birleştirmek için
+## Geliştirme yapmak için
 ```
-npm run build
+npm run dev
 ```
 
-## Anlık izleme yaptırmak için
+## Production için
 ```
-npm run watch
+npm run build
 ```

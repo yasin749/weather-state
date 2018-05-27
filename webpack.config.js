@@ -1,28 +1,45 @@
-var webpack = require('webpack');
 var path = require('path');
-
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
+var webpack = require('webpack');
 module.exports = {
-    entry: ['./resources/assets/App.js','./resources/assets/sass/style.scss'],
+    entry: './resources/assets/App.js',
     output: {
-        path: path.resolve(__dirname, './public'),
-        filename: 'App.js'
+        path: path.resolve(__dirname, 'public'),
+        filename: 'app.js'
     },
     module: {
-        rules: [
+        loaders: [
             {
-                test: /\.(css|sass|scss)$/,
-                use: ExtractTextPlugin.extract({
-                    use: ['css-loader', 'sass-loader'],
-                })
+                test: /\.js$/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015']
+                }
             }
         ]
     },
-    plugins: [
-        new ExtractTextPlugin({
-            filename: 'style.css',
-            allChunks: true,
+    stats: {
+        colors: true
+    },
+    devtool: 'source-map'
+};
+
+if (process.env.NODE_ENV === 'production') {
+    module.exports.devtool = '#source-map'
+    module.exports.plugins = (module.exports.plugins || []).concat([
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: '"production"'
+            }
         }),
-    ],
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+            compress: {
+                warnings: false
+            }
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        })
+    ])
 }
+

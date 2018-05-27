@@ -16,9 +16,10 @@ var weatherLine = Vue.component('weather-line', {
             let imageUrl = `${config.weatherState.api.iconUrl}${this.forecast.weather[0].icon}.png`;
             return imageUrl;
         }
+
     },
     template: `
-        <div v-bind:class="['weather-line', date.dayName.toLowerCase()]">
+        <div v-bind:class="['weather-line', (date.dayName.toLowerCase())]">
             <div class="date">
                 <span class="day">{{date.dayName}}</span>
                 <span class="time">{{date.timeNumber}}</span>
