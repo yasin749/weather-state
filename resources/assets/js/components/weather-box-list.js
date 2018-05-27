@@ -1,8 +1,9 @@
 import Vue from "vue/dist/vue";
 import VueResource from 'vue-resource'
 import config from '../../config'
-import weatherBox from './weather-box'
 import dateFormatter from '../helpers/dateFormatter'
+import weatherBox from './weather-box'
+
 
 Vue.use(VueResource);
 

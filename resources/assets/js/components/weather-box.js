@@ -10,7 +10,7 @@ var weatherBox = Vue.component('weather-box', {
     },
     methods: {
         imageUrlPrepared : function () {
-            let imageUrl = `http://openweathermap.org/img/w/${this.city.weather[0].icon}.png`;
+            let imageUrl = `${config.weatherState.api.iconUrl}${this.city.weather[0].icon}.png`;
             return imageUrl;
         }
     },

@@ -3,7 +3,7 @@ var config = {
         api: {
             appId : '4cf9deb8b16a507d993b036c4991b7eb',
             dataUrl : 'http://api.openweathermap.org/data/2.5/weather',
-            iconUrl : 'http://openweathermap.org/img/w/04d.png',
+            iconUrl : 'http://openweathermap.org/img/w/',
         },
         cities : {
             istanbul: {

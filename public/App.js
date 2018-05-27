@@ -11054,7 +11054,7 @@ var config = {
         api: {
             appId : '4cf9deb8b16a507d993b036c4991b7eb',
             dataUrl : 'http://api.openweathermap.org/data/2.5/weather',
-            iconUrl : 'http://openweathermap.org/img/w/04d.png',
+            iconUrl : 'http://openweathermap.org/img/w/',
         },
         cities : {
             istanbul: {
@@ -11573,8 +11573,9 @@ process.umask = function() { return 0; };
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_resource__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__weather_box__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__helpers_dateFormatter__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers_dateFormatter__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__weather_box__ = __webpack_require__(11);
+
 
 
 
@@ -11616,7 +11617,7 @@ var weatherBoxList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.compon
             });
         },
         nowDateString: function (date) {
-            const formattedDate = Object(__WEBPACK_IMPORTED_MODULE_4__helpers_dateFormatter__["a" /* default */])(date);
+            const formattedDate = Object(__WEBPACK_IMPORTED_MODULE_3__helpers_dateFormatter__["a" /* default */])(date);
             return `${formattedDate.dayNumber} ${formattedDate.monthName} ${formattedDate.dayName}`;
         }
     },
@@ -13226,7 +13227,7 @@ var weatherBox = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component(
     },
     methods: {
         imageUrlPrepared : function () {
-            let imageUrl = `http://openweathermap.org/img/w/${this.city.weather[0].icon}.png`;
+            let imageUrl = `${__WEBPACK_IMPORTED_MODULE_1__config__["a" /* default */].weatherState.api.iconUrl}${this.city.weather[0].icon}.png`;
             return imageUrl;
         }
     },
