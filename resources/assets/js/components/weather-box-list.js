@@ -1,9 +1,8 @@
 import Vue from "vue/dist/vue";
 import VueResource from 'vue-resource'
 import config from '../../config'
-import dateFormatter from '../helpers/dateFormatter'
+import dateTimeFormat from '../helpers/date-time-format'
 import weatherBox from './weather-box'
-
 
 Vue.use(VueResource);
 
@@ -29,7 +28,7 @@ var weatherBoxList = Vue.component('weather-box-list', {
             }
         },
         apiUrlPrepared: function (cityId) {
-            let apiUrl = `${config.weatherState.api.dataUrl}?id=${cityId}&appid=${config.weatherState.api.appId}`;
+            let apiUrl = `${config.weatherState.api.dataUrl}weather?id=${cityId}&appid=${config.weatherState.api.appId}`;
             return apiUrl;
         },
         apiFetchData: function (url) {
@@ -40,7 +39,7 @@ var weatherBoxList = Vue.component('weather-box-list', {
             });
         },
         nowDateString: function (date) {
-            const formattedDate = dateFormatter(date);
+            const formattedDate = dateTimeFormat(date);
             return `${formattedDate.dayNumber} ${formattedDate.monthName} ${formattedDate.dayName}`;
         }
     },

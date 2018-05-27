@@ -11053,7 +11053,7 @@ var config = {
     weatherState : {
         api: {
             appId : '4cf9deb8b16a507d993b036c4991b7eb',
-            dataUrl : 'http://api.openweathermap.org/data/2.5/weather',
+            dataUrl : 'http://api.openweathermap.org/data/2.5/',
             iconUrl : 'http://openweathermap.org/img/w/',
         },
         cities : {
@@ -11100,6 +11100,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_components_weather_box_list__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__js_components_weather_line_list__ = __webpack_require__(14);
+
 
 
 
@@ -11573,9 +11575,8 @@ process.umask = function() { return 0; };
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_resource__ = __webpack_require__(9);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers_dateFormatter__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__helpers_date_time_format__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__weather_box__ = __webpack_require__(11);
-
 
 
 
@@ -11606,7 +11607,7 @@ var weatherBoxList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.compon
             }
         },
         apiUrlPrepared: function (cityId) {
-            let apiUrl = `${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.dataUrl}?id=${cityId}&appid=${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.appId}`;
+            let apiUrl = `${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.dataUrl}weather?id=${cityId}&appid=${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.appId}`;
             return apiUrl;
         },
         apiFetchData: function (url) {
@@ -11617,7 +11618,7 @@ var weatherBoxList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.compon
             });
         },
         nowDateString: function (date) {
-            const formattedDate = Object(__WEBPACK_IMPORTED_MODULE_3__helpers_dateFormatter__["a" /* default */])(date);
+            const formattedDate = Object(__WEBPACK_IMPORTED_MODULE_3__helpers_date_time_format__["a" /* default */])(date);
             return `${formattedDate.dayNumber} ${formattedDate.monthName} ${formattedDate.dayName}`;
         }
     },
@@ -13250,33 +13251,145 @@ var weatherBox = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component(
 
 
 /***/ }),
-/* 12 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-function dateFormatter(date) {
-    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-    const months = ['January', 'Februar', 'March', 'April', 'May', 'June', 'July','August', 'September', 'October', 'November', 'December'];
-
-    return {
-        dayNumber : date.getDate(),
-        mounthNumber : date.getMonth(),
-        yearNumber : date.getFullYear(),
-
-        dayName : days[date.getDay()],
-        monthName : months[date.getMonth()],
-    }
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (dateFormatter);
-
-
-
-/***/ }),
+/* 12 */,
 /* 13 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vue_resource__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__config__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__weather_line__ = __webpack_require__(15);
+
+
+
+
+
+__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.use(__WEBPACK_IMPORTED_MODULE_1_vue_resource__["a" /* default */]);
+
+var weatherLineList = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component('weather-line-list', {
+    data: function () {
+        return {
+            forecasts: [],
+            cityId : 745044
+        }
+    },
+    created() {
+        this.loadForecasts();
+    },
+    methods: {
+        loadForecasts: function () {
+            let cityId = this.cityId;
+            let apiUrl = this.apiUrlPrepared(cityId);
+            this.apiFetchData(apiUrl);
+        },
+        apiUrlPrepared: function (cityId) {
+            let apiUrl = `${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.dataUrl}forecast?id=${cityId}&appid=${__WEBPACK_IMPORTED_MODULE_2__config__["a" /* default */].weatherState.api.appId}`;
+            return apiUrl;
+        },
+        apiFetchData: function (url) {
+            this.$http.get(url).then(response => {
+                this.forecasts.push(response.body);
+            }, response => {
+                console.log('Api verileri alınamadı');
+            });
+        },
+    },
+    template: `
+        <div>
+            <h2>{{forecasts[0].city.name}}</h2>
+            <div class="weather-line head">
+                <div class="date">Date</div>
+                <div class="ico">Expect</div>
+                <div class="temperature">Temperature (°С)</div>
+                <div class="state">State</div>
+                <div class="wind">Wind (m/s)</div>
+            </div>
+            <div v-for="(forecast, index) in forecasts[0].list">
+                <weather-line v-bind:forecast="forecast"></weather-line>
+            </div>
+        </div>
+    `
+})
+
+/* unused harmony default export */ var _unused_webpack_default_export = (weatherLineList);
+
+/***/ }),
+/* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vue_dist_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_date_time_format__ = __webpack_require__(17);
+
+
+
+
+var weatherLine = __WEBPACK_IMPORTED_MODULE_0_vue_dist_vue___default.a.component('weather-line', {
+    props: {
+        forecast: {type: Object, required: true}
+    },
+    data: function () {
+        return {
+            date: Object(__WEBPACK_IMPORTED_MODULE_2__helpers_date_time_format__["a" /* default */])(new Date(this.forecast.dt_txt))
+        }
+    },
+    methods: {
+        imageUrlPrepared: function () {
+            let imageUrl = `${__WEBPACK_IMPORTED_MODULE_1__config__["a" /* default */].weatherState.api.iconUrl}${this.forecast.weather[0].icon}.png`;
+            return imageUrl;
+        }
+    },
+    template: `
+        <div class="weather-line">
+            <div class="date">
+                <span class="day">{{date.dayName}}</span>
+                <span class="time">{{date.timeNumber}}</span>
+            </div>
+            <div class="ico"><img v-bind:src="imageUrlPrepared()" class="ico"></div>
+            <div class="temperature">{{this.forecast.main.temp}}</div>
+            <div class="state">{{this.forecast.weather[0].main}}</div>
+            <div class="wind">{{this.forecast.wind.speed}}</div>
+        </div>
+    `
+})
+
+/* unused harmony default export */ var _unused_webpack_default_export = (weatherLine);
+
+
+/***/ }),
+/* 16 */,
+/* 17 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+function dateTimeFormat(date) {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ['January', 'Februar', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+    return {
+        dayNumber: date.getDate(),
+        mounthNumber: date.getMonth(),
+        yearNumber: date.getFullYear(),
+        timeNumber: `${date.getHours().toString().length < 2 ? '0' : ''}${date.getHours()}:${date.getMinutes().toString().length < 2 ? '0' : ''}${date.getMinutes()}`,
+
+        dayName: days[date.getDay()],
+        monthName: months[date.getMonth()],
+    }
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (dateTimeFormat);
+
+
 
 /***/ })
 /******/ ]);
