@@ -1,6 +1,8 @@
 # weather-state
 
-https://openweathermap.org/current datalarını kullanarak günlük ve 5 günlük hava durumu gösterimi yapar. 
+https://yasin749.github.io/weather-state/
+
+https://openweathermap.org/ datalarını kullanarak günlük ve 5 günlük hava durumu gösterimi yapar. 
 
 ## Paketleri yüklemek için
 ```
