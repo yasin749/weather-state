@@ -8,15 +8,21 @@ var weatherLine = Vue.component('weather-line', {
     },
     data: function () {
         return {
-            date: dateTimeFormat(new Date(this.forecast.dt_txt))
+            date: this.datePrepared()
         }
+    },
+    created() {
+
     },
     methods: {
         imageUrlPrepared: function () {
             let imageUrl = `${config.weatherState.api.iconUrl}${this.forecast.weather[0].icon}.png`;
             return imageUrl;
+        },
+        datePrepared:function () {
+            let splitDate = this.forecast.dt_txt.split(/[ :-]+/);
+            return dateTimeFormat(new Date(splitDate[0],splitDate[1]-1,splitDate[2],splitDate[3],splitDate[4],splitDate[5]));
         }
-
     },
     template: `
         <div v-bind:class="['weather-line', date.dayName]">
