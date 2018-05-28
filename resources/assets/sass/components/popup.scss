@@ -51,12 +51,13 @@
       }
     }
     .body-block {
-      //padding: 50px 0 0 0;
+
     }
     .body-block-inner {
       min-height: 100px;
       max-height: 70vh;
-      overflow: scroll;
+      overflow-y: scroll;
+      @extend .standartScroll;
     }
   }
 }
@@ -90,5 +91,3 @@
   }
 
 }
-
-.popup .content-section

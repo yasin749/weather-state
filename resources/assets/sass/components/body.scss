@@ -44,18 +44,7 @@ h2 {
   margin: 20px 0;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
+
 
 .adaptLink {
   color: inherit;
@@ -68,6 +57,21 @@ h2 {
   list-style: none;
   > li {
     display: inline-block;
+  }
+}
+
+.standartScroll{
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
   }
 }
 
