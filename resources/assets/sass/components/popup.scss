@@ -78,6 +78,11 @@
       padding: 10px;
     }
     .content-section {
+      .head-block {
+        h2 {
+          margin-bottom: 15px;
+        }
+      }
       .body-block-inner {
         max-height: 91vh;
       }
@@ -85,3 +90,5 @@
   }
 
 }
+
+.popup .content-section
