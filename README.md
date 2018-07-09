@@ -1,6 +1,6 @@
 # weather-state
 
-https://yasin749.github.io/weather-state/
+https://yasin749.github.io/weather-state/vue
 
 https://openweathermap.org/ datalarını kullanarak günlük ve 5 günlük hava durumu gösterimi yapar. 
 
