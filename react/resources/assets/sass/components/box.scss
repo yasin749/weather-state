@@ -1,0 +1,6 @@
+.box {
+  border: 1px solid $borderColor-300;
+  &:not(.no-margin) {
+    margin-bottom: $marginBase;
+  }
+}

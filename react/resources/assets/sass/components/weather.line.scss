@@ -1,0 +1,54 @@
+.weather-line {
+  display: flex;
+  border-bottom: 1px solid $borderColor-300;
+  > div {
+    flex: 1;
+    @extend .aligner;
+    flex-direction: column;
+    padding: 5px;
+  }
+  &.Sunday {
+    background: #fbfbfb;
+  }
+  &.Monday, &.Wednesday, &.Friday {
+
+  }
+  &.Tuesday, &.Thursday, &.Saturday {
+    background: #f3f3f3;
+  }
+  &.head {
+    padding: 10px 0;
+    background: $baseColor-400;
+    color: #fff;
+    border: none;
+  }
+  .date {
+
+  }
+  .ico {
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  .temperature {
+
+  }
+  .state {
+
+  }
+  .wind {
+
+  }
+}
+
+
+@media screen and (max-width: 640px) {
+  .weather-line {
+    font-size: 12px;
+    > div {
+      padding: 0px;
+    }
+  }
+}
+

@@ -1,0 +1,42 @@
+.button {
+  transition: $transitionBase;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none !important;
+  margin: 10px 0;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  &.small {
+    font-size: 14px;
+    padding: 5px 15px;
+    padding-top: 7px;
+    font-weight: 600;
+    min-width: 130px;
+  }
+  &.medium {
+    font-size: 20px;
+    padding: 8px 15px;
+    font-weight: 600;
+    min-width: 140px;
+    line-height: 1.5;
+  }
+  &.large {
+    font-size: 24px;
+    padding: 10px 20px;
+    font-weight: 600;
+    min-width: 160px;
+    line-height: 1.5;
+  }
+
+  &.service-button {
+    background: $baseColor-400;
+    color: #FFF;
+    &:hover {
+      background: $baseColor-300;
+    }
+  }
+  &.border-button {
+    border:1px solid $borderColor-400;
+  }
+}
