@@ -1,8 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import WeatherBoxList from "./js/components/weather-box-list";
+
 const Index = () => {
-    return <div>Hello React!</div>;
+    return <WeatherBoxList/>;
 };
 
-ReactDOM.render(<Index />, document.getElementById("app"));
+ReactDOM.render(
+    <Index />,
+    document.getElementById("app")
+);

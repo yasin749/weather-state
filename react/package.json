@@ -18,7 +18,7 @@
     "react-dom": "^16.4.1"
   },
   "scripts": {
-    "dev": "webpack --watch | npm run css-watch",
+    "dev": "webpack --watch --mode=development | npm run css-watch",
     "build": "NODE_ENV=production webpack --progress --hide-modules && npm run css",
     "css": "node-sass --output-style 'compressed' resources/assets/sass/style.scss -o public/css",
     "css-watch": "node-sass --watch --output-style 'compressed' resources/assets/sass/style.scss -o public/css"
