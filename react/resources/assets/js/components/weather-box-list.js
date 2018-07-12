@@ -1,6 +1,6 @@
 import React from "react";
-import config from '../../config'
 import WeatherBox from './weather-box';
+import config from '../../config'
 import dateTimeFormat from '../helpers/date-time-format'
 
 class WeatherBoxList extends React.Component {
@@ -64,9 +64,11 @@ class WeatherBoxList extends React.Component {
 
         if (error) {
             return <div>Error: {error.message}</div>;
-        } else if (!isLoaded) {
+        }
+        else if (!isLoaded) {
             return <div>Loading...</div>;
-        } else {
+        }
+        else {
             return (
                 <div className="container">
                     <div className="row">

@@ -1,56 +1,75 @@
-import Vue from "vue/dist/vue";
-import VueResource from 'vue-resource'
-import config from '../../config'
-import weatherLine from './weather-line'
+import React from "react";
+import WeatherLine from './weather-line';
+import config from '../../config';
 
-Vue.use(VueResource);
+class WeatherLineList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: null,
+            isLoaded: false,
+            forecasts: []
+        };
+    }
 
-var weatherLineList = Vue.component('weather-line-list', {
-    props: {
-        cityId: {type: Number, required: true},
-    },
-    data: function () {
-        return {
-            forecasts: [],
-        }
-    },
-    created() {
+    componentDidMount() {
         this.loadForecasts();
-    },
-    methods: {
-        loadForecasts: function () {
-            let apiUrl = this.apiUrlPrepared(this.cityId);
-            this.apiFetchData(apiUrl);
-        },
-        apiUrlPrepared: function (cityId) {
-            let apiUrl = `${config.weatherState.api.dataUrl}forecast?id=${cityId}&appid=${config.weatherState.api.appId}&units=metric`;
-            return apiUrl;
-        },
-        apiFetchData: function (url) {
-            this.$http.get(url).then(response => {
-                this.forecasts.push(response.body);
-            }, response => {
-                console.log('Api verileri alınamadı');
-            });
-        },
-    },
-    template: `
-        <div>
-            <div v-if="forecasts.length == 0">Loading...</div>
-            <div v-if="forecasts.length > 0">
-                <div class="weather-line head">
-                    <div class="date">Date</div>
-                    <div class="ico">Expect</div>
-                    <div class="temperature">Temperature (°С)</div>
-                    <div class="state">State</div>
-                    <div class="wind">Wind (m/s)</div>
-                </div>
-                <div v-for="(forecast, index) in forecasts[0].list">
-                    <weather-line v-bind:forecast="forecast"></weather-line>
-                </div>
-            </div>
-        </div>
-    `
-})
+    }
 
-export default weatherLineList;
+    loadForecasts() {
+        let apiUrl = this.apiUrlPrepared(this.props.cityId);
+        this.apiFetchData(apiUrl);
+    }
+
+    apiUrlPrepared(cityId) {
+        let apiUrl = `${config.weatherState.api.dataUrl}forecast?id=${cityId}&appid=${config.weatherState.api.appId}&units=metric`;
+        return apiUrl;
+    }
+
+    apiFetchData(url) {
+        fetch(url)
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        forecasts: this.state.forecasts.concat([result])
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                    console.log('Api verileri alınamadı');
+                }
+            )
+    }
+
+    render() {
+        const {error, isLoaded, forecasts} = this.state;
+
+        if (error) {
+            return <div>Error: {error.message}</div>;
+        } else if (!isLoaded) {
+            return <div>Loading...</div>;
+        } else {
+            return (
+                <div>
+                    <div className="weather-line head">
+                        <div className="date">Date</div>
+                        <div className="ico">Expect</div>
+                        <div className="temperature">Temperature (°С)</div>
+                        <div className="state">State</div>
+                        <div className="wind">Wind (m/s)</div>
+                    </div>
+                    {forecasts[0].list.map((forecast,key) => (
+                        <WeatherLine forecast={forecast} key={key}/>
+                    ))}
+                </div>
+            );
+        }
+    }
+}
+
+export default WeatherLineList;
