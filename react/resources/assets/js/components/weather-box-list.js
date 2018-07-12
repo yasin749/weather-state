@@ -63,10 +63,10 @@ class WeatherBoxList extends React.Component {
         const {error, isLoaded, cities} = this.state;
 
         if (error) {
-            return <div>Error: {error.message}</div>;
+            return <div className="container">Error: {error.message}</div>;
         }
         else if (!isLoaded) {
-            return <div>Loading...</div>;
+            return <div className="container">Loading...</div>;
         }
         else {
             return (
