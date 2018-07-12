@@ -1,8 +1,13 @@
 # weather-state
 
-https://yasin749.github.io/weather-state/vue
+https://openweathermap.org/ datalarını kullanarak günlük ve 5 günlük hava durumu gösterimi yapar.
 
-https://openweathermap.org/ datalarını kullanarak günlük ve 5 günlük hava durumu gösterimi yapar. 
+React ve vue.js ile yapılmış versiyonlar
+
+https://yasin749.github.io/weather-state/react 
+https://yasin749.github.io/weather-state/vue 
+
+Her iki proje için aşağıdaki yöntemler uygulanır.
 
 ## Paketleri yüklemek için
 ```
