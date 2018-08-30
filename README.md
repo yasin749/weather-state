@@ -1,4 +1,4 @@
-# weather-state
+# Weather State
 
 https://openweathermap.org/ datalarını kullanarak günlük ve 5 günlük hava durumu gösterimi yapar.
 
